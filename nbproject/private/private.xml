@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/opt/lampp/htdocs/testpro/app/Http/Controllers/OfferController.php</file>
+            <file>file:/opt/lampp/htdocs/testpro/app/Http/Models/Purchase.php</file>
+            <file>file:/opt/lampp/htdocs/testpro/routes/api.php</file>
+            <file>file:/opt/lampp/htdocs/testpro/database/migrations/2017_04_14_054700_create_purchase_table.php</file>
+            <file>file:/opt/lampp/htdocs/testpro/database/migrations/2017_04_14_054637_create_offering_table.php</file>
+            <file>file:/opt/lampp/htdocs/testpro/routes/console.php</file>
+            <file>file:/opt/lampp/htdocs/testpro/config/database.php</file>
+            <file>file:/opt/lampp/htdocs/testpro/app/Http/Models/Offer.php</file>
+            <file>file:/opt/lampp/htdocs/testpro/routes/web.php</file>
+        </group>
+    </open-files>
+</project-private>

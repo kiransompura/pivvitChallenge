@@ -1,0 +1,46 @@
+<form  name="purchaseForm" method="post" ng-submit="purchaseForm.$valid && addPurchase()" novalidate="">
+    <table>
+        <tr>
+            <td>Item</td>
+            <td>
+                <select ng-model="purchase.product" required="" name="product">
+                    <option value="">Select Product</option>
+                    <option value="1">ONE</option>
+                    <option value="2">TWO</option>
+                    <option value="25">THREE</option>
+                    <option value="65">FOUR</option>
+                </select>
+            </td>
+            <td>
+                <div ng-show="purchaseForm.$submitted
+                                purchaseForm.product.$touched" ng-model="purchase.product" class="validationError" placeholder="Select subject.">
+                    <span ng-show="purchaseForm.product.$error.required" class="text-danger">Please select product.</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Company name</td>
+            <td><input type="text" name="company" ng-model="purchase.company" required=""></td>
+            <td>
+                <div ng-show="purchaseForm.$submitted
+                                purchaseForm.company.$touched" ng-model="purchase.company" class="validationError" placeholder="Select subject.">
+                    <span ng-show="purchaseForm.company.$error.required" class="text-danger">Please enter company name.</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input type="text" name="price" ng-model="purchase.price" required=""></td>
+            <td>
+                <div ng-show="purchaseForm.$submitted
+                                purchaseForm.price.$touched" ng-model="purchase.price" class="validationError" placeholder="Select subject.">
+                    <span ng-show="purchaseForm.price.$error.required" class="text-danger">Please enter product price.</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="reset"></td>
+            <td><input type="submit" name="submit" value="Add Purchase"></td>
+        </tr>
+    </table> 
+</form>

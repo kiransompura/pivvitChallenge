@@ -1,0 +1,29 @@
+<form name="purchaseForm" method="post" ng-submit="addPurchase()">
+  <table>
+    <tr>
+      <td>Item</td>
+      <td>
+        <select ng-model="purchase.product">
+          <option value="">Select Product</option>
+          <option value="ONE">ONE</option>
+          <option value="TWO">TWO</option>
+          <option value="THREE">THREE</option>
+          <option value="FOUR">FOUR</option>
+        </select>
+      </td>
+      <td><span></span></td>
+    </tr>
+    <tr>
+      <td>Company name</td>
+      <td><input type="text" name="company" ng-model="purchase.company"></td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td><input type="text" name="price" ng-model="purchase.price"></td>
+    </tr>
+    <tr>
+      <td><input type="reset"></td>
+      <td><input type="submit" name="submit" value="Add Purchase"></td>
+    </tr>
+  </table>  
+</form>
