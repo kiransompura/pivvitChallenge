@@ -8,6 +8,7 @@ use App\Http\Models\Purchase;
 use Illuminate\Support\Facades\Response;
 use Validator;
 use DB;
+
 class PurchaseController extends Controller {
 
     /**
@@ -17,9 +18,10 @@ class PurchaseController extends Controller {
      */
     public function index() {
 
-        $purchaseData = DB::table('purchase')->select('*')
-                ->leftJoin('offering','offering.id','=','purchase.offering_id')
-                 ->get();
+        $purchaseData = DB::table('purchase')->select('purchase.id', 'purchase.offering_id', 'offering.title', 'offering.price', 'purchase.quantity')
+                ->leftJoin('offering', 'offering.id', '=', 'purchase.offering_id')
+                ->get();
+
         return Response::json(['data' => $purchaseData]);
     }
 
@@ -41,7 +43,7 @@ class PurchaseController extends Controller {
     public function store(Request $request) {
 
         $post = $request->all();
-//        print_r($post);exit();
+        //$post['offering_id'] = 45;
         $validator = $this->checkValidation($post);
         //if validation fails send first error massage
         if ($validator->fails()) {
@@ -112,7 +114,7 @@ class PurchaseController extends Controller {
         $validator = Validator::make($input, [
                     'customer_name' => 'required',
                     'offering_id' => 'required|exists:offering,id',
-                    'quantity' => 'required',
+                    'quantity' => 'required|numeric',
         ]);
         return $validator;
     }

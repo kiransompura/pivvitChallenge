@@ -1,17 +1,13 @@
-routerApp.controller('purchaseController', function ($scope, $http, $filter) {
+routerApp.controller('purchaseController', function ($scope, $http, $filter, DTOptionsBuilder, DTColumnDefBuilder) {
 
     $scope.plist = [];
     $scope.offerlist = [];
-    //$scope.price = 0;
+    $scope.price = 0;
     $http({
         url: 'api/offer',
         method: 'get',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
     }).success(function (response) {
         $scope.offerlist = response.data;
-        console.log('response', response);
     });
 
     $http({
@@ -20,21 +16,26 @@ routerApp.controller('purchaseController', function ($scope, $http, $filter) {
         data: $scope.purchase,
 
     }).success(function (response) {
-
         $scope.plist = response.data;
-        console.log('response', $scope.plist);
     });
 
 
     $scope.addPurchase = function () {
 
-        //$scope.purchase.offering_id = JSON.parse($scope.purchase.offering_id).id;
         $http({
             url: 'api/purchases',
             method: 'POST',
             data: $scope.purchase,
 
         }).success(function (response) {
+            if (response.message) {
+                $scope.success = response.message;
+               
+            } else if (response.error)
+            {
+                $scope.error = response.error;
+                
+            }
             console.log('response', response);
         });
     }
@@ -47,6 +48,12 @@ routerApp.controller('purchaseController', function ($scope, $http, $filter) {
         });
     }
 
+    $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers').withDisplayLength(2);
+    $scope.dtColumnDefs = [
+        DTColumnDefBuilder.newColumnDef(0),
+        DTColumnDefBuilder.newColumnDef(1).notVisible(),
+        DTColumnDefBuilder.newColumnDef(2).notSortable()
+    ];
 
 });
 

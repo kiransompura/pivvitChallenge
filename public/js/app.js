@@ -7,16 +7,16 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
       .state('home', {
         url: '/home',
-        templateUrl: 'partial-home.html'
+        templateUrl: 'js/views/partial-home.html'
       })
       .state('home.list', {
         url: '/list',
-        templateUrl: 'list.html',
+        templateUrl: 'js/views/list.html',
         controller: 'purchaseController',
       })
       .state('home.create', {
         url: '/create',
-        templateUrl: 'create.html',
+        templateUrl: 'js/views/create.html',
         controller: 'purchaseController',
       });
 });
